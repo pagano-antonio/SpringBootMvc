@@ -12,9 +12,9 @@
 <body>
 
 	<%
-		String pippo = (String) request.getSession().getAttribute("miaVar");
+		String pippo = (String) request.getAttribute("miaVar");
 
-		ArrayList<Student> tmp = (ArrayList<Student>) session.getAttribute("myListRuoli");
+		ArrayList<Student> tmp = (ArrayList<Student>) request.getAttribute("myListStudents");
 		out.print(pippo);
 	%>
 
@@ -43,9 +43,7 @@
 tabella 2
 
 <table border="1px">
-
-	<c:forEach var="r"  items="${myListRuoli}"  >
-
+	<c:forEach var="r"  items="${myListStudents}"  >
 	 		<tr>
 				<td>${r.id}</td>
 				<td>${r.name}</td>
