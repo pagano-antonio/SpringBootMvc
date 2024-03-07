@@ -8,5 +8,8 @@
 </head>
 <body>
 <a href="${pageContext.request.contextPath}/prepreInserimento">INSERISCI STUDENTE</a>
+
+<a href="${pageContext.request.contextPath}/prepreInserimentoHtmlPuro">INSERISCI STUDENTE Html Puro</a>
+
 </body>
 </html>

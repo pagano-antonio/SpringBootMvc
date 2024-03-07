@@ -13,7 +13,7 @@
 <body>
 
    <h2>Registration Form</h2>
-    <form:form modelAttribute="studentForm"  method="POST" action="/inserimento">
+    <form:form modelAttribute="studentForm"  method="POST" action="/ctrvalidation/inserimento">
         <p>
             <form:label path="name">Name:</form:label>
             <form:input path="name" />

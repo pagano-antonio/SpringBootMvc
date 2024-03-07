@@ -5,8 +5,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import jakarta.validation.Valid;
 
 
 
@@ -15,7 +19,8 @@ public class MyController {
 	
     @GetMapping("/home")
     public String home(Model model) {
-      //  model.addAttribute("message", "Hello from Spring Boot!");
+    	
+   
         return "home";
         
         ///views/home.jsp
@@ -24,16 +29,23 @@ public class MyController {
     
 	@RequestMapping("/prepreInserimento")
 	public String preStudent(Model model) {
-		String g = "ciao";
-		model.addAttribute("ParolaCercata", g );
+	    model.addAttribute("studentForm", new Student());
 		
 		return "inserimentoStudente";
 
 	}
    
-	@RequestMapping("/inserimento")
-	public String aggiorna(Model model, Student s) {
+	@RequestMapping("/prepreInserimentoHtmlPuro")
+	public String prepreInserimentoHtmlPuro(Model model) {
+		
+		return "inserimentoStudenteHtmlPuro";
 
+	}
+   
+	@RequestMapping("/inserimento")
+	public String aggiorna(Model model,@ModelAttribute("studentForm")  Student s) {
+        
+		
 		// s ha in automatico tutti i valori del form
 		// senza usare model attribute
 		
@@ -43,7 +55,20 @@ public class MyController {
 		return "inserimentoStudenteOK";
 
 	}
-	
+	@RequestMapping("/inserimentoHtmlPuro")
+	public String inserimentoHtmlPuro(Model model, Student s) {
+
+		// s ha in automatico tutti i valori del form
+		// senza usare model attribute
+		
+		
+		//model.addAttribute("msg_errore","esempio di errore");
+		// nella jsp faccio un if e stampo il msg_errore
+		
+		
+		return "inserimentoStudenteOK";
+
+	}
 	
 	 @GetMapping("/esempioJstl")
 	    public String esempioJstl(Model model) {

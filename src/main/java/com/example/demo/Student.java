@@ -2,15 +2,24 @@ package com.example.demo;
 
 import java.util.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 public class Student {
 	private Integer age;
+
+	//list annotations
+	//https://www.geeksforgeeks.org/hibernate-validator-with-example/
+	@NotBlank(message = "Name is mandatory")
+	@Size(min = 2, max = 14)
 	private String name;
-	private Integer id; 
-	
-	
-	//@DateTimeFormat(pattern = "yyyy-MM-dd")// funziona solo da wildfly 10.1 in poi
+
+	@NotNull
+	private Integer id;
+
+	// @DateTimeFormat(pattern = "yyyy-MM-dd")// funziona solo da wildfly 10.1 in
+	// poi
 	private Date dataAssunzione;
 
 	public Date getDataAssunzione() {
