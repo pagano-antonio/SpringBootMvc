@@ -22,6 +22,8 @@
         <p>
             <form:label path="age">age:</form:label>
             <form:input path="age" />
+            <form:errors path="age" cssClass="error" />
+    
         </p>
         <input type="submit" value="Register" />
     </form:form>

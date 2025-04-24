@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="com.example.demo.Student"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,17 +13,17 @@
 <body>
 
    <h2>Registration Form</h2>
-    <form:form modelAttribute="studentForm"  method="POST" action="/inserimento">
+    <f:form modelAttribute="studentForm"  method="POST" action="/inserimento">
         <p>
-            <form:label path="name">Name:</form:label>
-            <form:input path="name" />
-            <form:errors path="name" cssClass="error" />
+            <f:label path="name">Name:</f:label>
+            <f:input path="name" />
+            <!-- f:errors path="name" cssClass="error" /> -->
        </p>
         <p>
-            <form:label path="age">age:</form:label>
-            <form:input path="age" />
+            <f:label path="age">age:</f:label>
+            <f:input path="age" />
         </p>
         <input type="submit" value="Register" />
-    </form:form>
+    </f:form>
 </body>
 </html>

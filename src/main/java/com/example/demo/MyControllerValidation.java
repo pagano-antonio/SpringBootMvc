@@ -31,8 +31,10 @@ public class MyControllerValidation {
 
    
 	 @PostMapping("/inserimento")
-	public String aggiorna(Model model,@Valid @RequestBody @ModelAttribute("studentForm")  Student s, BindingResult r) {
-        if (r.hasErrors()) {
+	public String aggiorna(Model model,@Valid  @ModelAttribute("studentForm")  Student s, BindingResult r) {
+        System.out.println(s.getAge());
+		 if (r.hasErrors()) {
+			 System.out.println("Errori di validazione: " + r.getAllErrors());
             return "inserimentoStudenteValidator";
         }
 

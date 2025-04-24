@@ -7,6 +7,8 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class Student {
+	
+	@NotNull
 	private Integer age;
 
 	//list annotations
@@ -15,20 +17,20 @@ public class Student {
 	@Size(min = 2, max = 14)
 	private String name;
 
-	@NotNull
+	
 	private Integer id;
 
 	// @DateTimeFormat(pattern = "yyyy-MM-dd")// funziona solo da wildfly 10.1 in
 	// poi
-	private Date dataAssunzione;
-
-	public Date getDataAssunzione() {
-		return dataAssunzione;
-	}
-
-	public void setDataAssunzione(Date dataAssunzione) {
-		this.dataAssunzione = dataAssunzione;
-	}
+//	private Date dataAssunzione;
+//
+//	public Date getDataAssunzione() {
+//		return dataAssunzione;
+//	}
+//
+//	public void setDataAssunzione(Date dataAssunzione) {
+//		this.dataAssunzione = dataAssunzione;
+//	}
 
 	public void setAge(Integer age) {
 		this.age = age;

@@ -8,67 +8,57 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import jakarta.validation.Valid;
 
 
 
 @Controller
+//@RequestMapping("student")
+// aggiunge un prefisso student a tutti i metodi di questa
+//classe
 public class MyController {
 	
-    @GetMapping("/home")
-    public String home(Model model) {
+	@GetMapping("provametodo")
+	public String provaMetodo() {
+		System.out.println("dentro provametodo");
+		return "ciao";
+		//views/ciao.jsp
+	}
+	
+	//localhost:8080/home
+	//localhost:8080/student/home
+    @GetMapping("home")
+    public String gohome() {
     	
-   
+    	System.out.println("hello");
         return "home";
-        
-        ///views/home.jsp
+ 
     }
     
     
-	@RequestMapping("/prepreInserimento")
-	public String preStudent(Model model) {
-	    model.addAttribute("studentForm", new Student());
+	@GetMapping("/prepreInserimento")
+	public String preStudent(Model m) {
+	   m.addAttribute("studentForm", new Student());
 		
 		return "inserimentoStudente";
 
 	}
    
-	@RequestMapping("/prepreInserimentoHtmlPuro")
-	public String prepreInserimentoHtmlPuro(Model model) {
-		
-		return "inserimentoStudenteHtmlPuro";
 
-	}
    
-	@RequestMapping("/inserimento")
-	public String aggiorna(Model model,@ModelAttribute("studentForm")  Student s) {
-        
+	@PostMapping("/inserimento")
+	public String aggiorna( Student s) {
+
 		
-		// s ha in automatico tutti i valori del form
-		// senza usare model attribute
-		
-		// non ho chiamato jpa
+		System.out.println(s.getName());
 		
 		
 		return "inserimentoStudenteOK";
 
 	}
-	@RequestMapping("/inserimentoHtmlPuro")
-	public String inserimentoHtmlPuro(Model model, Student s) {
 
-		// s ha in automatico tutti i valori del form
-		// senza usare model attribute
-		
-		
-		//model.addAttribute("msg_errore","esempio di errore");
-		// nella jsp faccio un if e stampo il msg_errore
-		
-		
-		return "inserimentoStudenteOK";
-
-	}
 	
 	 @GetMapping("/esempioJstl")
 	    public String esempioJstl(Model model) {
